@@ -1,0 +1,37 @@
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (event of events; track $index) {
+        <tr>
+            <td>{{event.title}}</td>
+            <td>{{event.date | date}}</td>
+            <td>{{event.description}}</td>
+            <td>
+                @for (category of event.category; track $index) {
+                <span>{{category.name}}</span>
+                }
+            </td>
+            <td>${{event.price}}</td>
+            <td>
+                <button class="delete" (click)="delete(event._id)">
+                    <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
+                <span class="edit" [routerLink]="['/dashboard/event/edit', event._id]">
+                    <fa-icon [icon]="faTicket"></fa-icon>
+                </span>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+

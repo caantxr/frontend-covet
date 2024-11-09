@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Kanit&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'kanit';
+    list-style: none;
+    text-decoration: none;
+}
+.header {
+    height: 6.7rem;
+}
+.container-section{
+   
+}
+.section-1{
+    background-image: url(../public/media/img/palm-tree-2445107_1920.jpg); 
+}
+.presentation.section-1 {
+    background-position: 0px -6.7rem;
+     display: flex;
+     flex-wrap:nowrap ;
+}

@@ -1,0 +1,75 @@
+<div class="section-1-main-event">
+    <div class="container-slider">
+    <input type="radio" id="1" name="image-slide" hidden>
+    <input type="radio" id="2" name="image-slide" hidden>
+    <input type="radio" id="3" name="image-slide" hidden>
+
+    <div class="slide">
+        <div class="item-slide">
+            <img src="media/img/palm-tree-2445107_1920.jpg" alt="img1">
+        </div>
+        <div class="item-slide">
+            <img src="media/img/party-629241_1920.jpg" alt="img2">
+        </div>
+        <div class="item-slide">
+            <img src="media/img/5a851bd7469c8ff9c4238fdfae3ef371.jpg" alt="img1">
+        </div>
+    </div>
+
+    <div class="pagination">
+        <label class="pagination-item" for="1">
+            <img src="media/img/palm-tree-2445107_1920.jpg">
+        </label>
+
+        <label class="pagination-item" for="2">
+            <img src="media/img/party-629241_1920.jpg">
+        </label>
+
+        <label class="pagination-item" for="3">
+            <img src="media/img/5a851bd7469c8ff9c4238fdfae3ef371.jpg">
+        </label>
+    </div>
+</div>
+</div>
+<div class="main-section">
+    <div class="sidebar" [class.active]="isActive">
+        <div class="top">
+          <div class="logo">
+            <i class="fa-solid fa-spa"></i>
+            <span>C O V E T</span>
+          </div>
+          <i class="fa-solid fa-bars" id="btn" (click)="toggleSidebar()"></i>
+        </div>
+        <div class="user">
+          <img src="/media/img/ppicgirl.jpg" alt="">
+          <div>
+            <p class="bold">Sasha</p>
+            <p>High</p>
+          </div>
+        </div>
+        <ul>
+          <li><a [routerLink]="['/home']" routerLinkActive="router-link-active" ><i class="fa-solid fa-house"></i><span class="nav-item">Inicio</span></a></li>
+          <li><a [routerLink]="['/dashboard/reserves']"><i class="fa-solid fa-ticket"></i><span class="nav-item">Reserva</span></a></li>
+          <li><a [routerLink]="['/aaaaa']"><i class="fa-solid fa-inbox"></i><span class="nav-item">Mensajes</span></a></li>
+          <li><a [routerLink]="['/dashboard/events/list']"><i class="fa-solid fa-champagne-glasses"></i><span class="nav-item">Eventos</span></a></li>
+          <li><a [routerLink]="['/home']"><i class="fa-solid fa-plus"></i><span class="nav-item">Subscripciones</span></a></li>
+          <li><a [routerLink]="['/help']"><i class="fa-regular fa-circle-question"></i><span class="nav-item">Ayuda</span></a></li>
+          <li><a [routerLink]="['/aaaa']"><i class="fa-solid fa-gear"></i><span class="nav-item">Ajustes</span></a></li>
+          <li><a [routerLink]="['/login']"><i class="fa-solid fa-arrow-right-from-bracket"></i><span class="nav-item">Salir</span></a></li>
+        </ul>
+      </div>
+      
+      <div class="main-content">
+
+      </div>
+      
+     
+</div>
+
+
+
+
+
+    <!-- 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999 -->
+
+

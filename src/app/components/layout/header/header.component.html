@@ -1,0 +1,29 @@
+<!-- <pre>{{ authUser | json }}</pre> -->
+
+@if ( authUser ) {
+    <p>Muestra header de logueo</p>
+}
+@else {
+    <header class="header-component">
+        <div class="header">
+            <span class="logo">Covet</span>
+            <nav class="navbar">
+                <span><a [routerLink]="['/home']"></a>Inicio</span>
+                <span><a [routerLink]="['/home']"></a>Planes</span>
+                <span><a [routerLink]="['/dashboard/reserves']"></a>Reserva</span>
+            </nav>
+            <div class="auth-buttons">
+                <span routerLink="login" routerLinkActive="router-link-active">
+                    <button class="inireg-button">Iniciar sesión</button>
+                </span>
+                <span routerLink="register">
+                    <button class="inireg-button-2">Registrarse</button>
+                </span>
+            </div>
+        </div>
+    </header>
+}
+
+
+
+

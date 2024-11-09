@@ -1,0 +1,97 @@
+<div class="events-container">
+  <h2>Editar Evento</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="eventForm">
+    
+    <!-- Campo Título -->
+    <div class="form-group">
+      <label for="title">Título</label>
+      <input type="text" id="title" formControlName="title" required class="form-control" />
+      <div class="error">
+        <small *ngIf="eventForm.get('title')?.errors?.['required'] && (eventForm.get('title')?.dirty || eventForm.get('title')?.touched)">
+          El campo 'título' es obligatorio
+        </small>
+      </div>
+    </div>
+
+    <!-- Campo Descripción -->
+    <div class="form-group">
+      <label for="description">Descripción</label>
+      <input type="text" id="description" formControlName="description" required class="form-control" />
+      <div class="error">
+        <small *ngIf="eventForm.get('description')?.errors?.['required'] && (eventForm.get('description')?.dirty || eventForm.get('description')?.touched)">
+          El campo 'descripción' es obligatorio
+        </small>
+      </div>
+    </div>
+
+    <!-- Campo Categoría -->
+    <div class="form-group">
+      <label for="category">Categoría</label>
+      <select formControlName="category" id="category" class="form-control">
+        <option *ngFor="let category of categories" [value]="category._id">
+          {{ category.name }}
+        </option>
+      </select>
+      <div class="error">
+        <small *ngIf="eventForm.get('category')?.errors?.['required'] && (eventForm.get('category')?.dirty || eventForm.get('category')?.touched)">
+          El campo 'categoría' es obligatorio
+        </small>
+      </div>
+    </div>
+
+    <!-- Campo Fecha -->
+    <div class="form-group">
+      <label for="date">Fecha</label>
+      <input type="string" id="date" formControlName="date" required class="form-control" />
+      <div class="error">
+        <small *ngIf="eventForm.get('date')?.errors?.['required'] && (eventForm.get('date')?.dirty || eventForm.get('date')?.touched)">
+          El campo 'fecha' es obligatorio
+        </small>
+        <small *ngIf="eventForm.get('date')?.errors?.['pastDate'] && (eventForm.get('date')?.dirty || eventForm.get('date')?.touched)">
+          La fecha no puede ser anterior a la actual
+        </small>
+      </div>
+    </div>
+
+    <!-- Campo Ubicación -->
+    <div class="form-group">
+      <label for="location">Ubicación</label>
+      <input type="text" id="location" formControlName="location" required class="form-control" />
+      <div class="error">
+        <small *ngIf="eventForm.get('location')?.errors?.['required'] && (eventForm.get('location')?.dirty || eventForm.get('location')?.touched)">
+          El campo 'ubicación' es obligatorio
+        </small>
+      </div>
+    </div>
+
+    <!-- Campo Capacidad -->
+    <div class="form-group">
+      <label for="capacity">Capacidad</label>
+      <input type="number" id="capacity" formControlName="capacity" required class="form-control" />
+      <div class="error">
+        <small *ngIf="eventForm.get('capacity')?.errors?.['required'] && (eventForm.get('capacity')?.dirty || eventForm.get('capacity')?.touched)">
+          El campo 'capacidad' es obligatorio
+        </small>
+        <small *ngIf="eventForm.get('capacity')?.errors?.['min'] && (eventForm.get('capacity')?.dirty || eventForm.get('capacity')?.touched)">
+          La capacidad debe ser al menos 1
+        </small>
+      </div>
+    </div>
+
+    <!-- Campo Precio -->
+    <div class="form-group">
+      <label for="price">Precio</label>
+      <input type="number" id="price" formControlName="price" required class="form-control" />
+      <div class="error">
+        <small *ngIf="eventForm.get('price')?.errors?.['required'] && (eventForm.get('price')?.dirty || eventForm.get('price')?.touched)">
+          El campo 'precio' es obligatorio
+        </small>
+        <small *ngIf="eventForm.get('price')?.errors?.['min'] && (eventForm.get('price')?.dirty || eventForm.get('price')?.touched)">
+          El precio debe ser un valor positivo
+        </small>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-submit" [disabled]="!eventForm.valid">Actualizar Evento</button>
+  </form>
+</div>
