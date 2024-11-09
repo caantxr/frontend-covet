@@ -67,28 +67,31 @@ logoutUser(): Observable<boolean> {
   return of( true );
 }
 
-// TODO: Verificar cuando se vence el Token para que el guard limpie el localStorate y redireccione al login
-verifyUser () {
-  const token = localStorage.getItem( 'token' ) || '';
-  const headers = new HttpHeaders().set( 'X-Token', token );
+  verifyUser() {
+    const token = localStorage.getItem('token') || '';
+    const headers = new HttpHeaders().set('X-Token', token);
 
-  console.log( token );
-
-  return this.http.get<Response>('http://localhost:4000/api/auth/re-new-token', { headers } )
-    .pipe (
-      tap ((data)=>{
-        console.log(data)
-      }),
-      map((data)=>{
-        console.log( 'verifyUser: ', data.ok );
-
-        return data.ok
-      }),
-      catchError ((data) =>{
-        return of (false)
-      })
-    );
-
-}
+    return this.http.get<any>('http://localhost:4000/api/auth/re-new-token', { headers })
+      .pipe(
+        map(response => {
+          if (response.ok) {
+            console.log( response.data );
+            // Almacenar los datos del usuario en localStorage (opcional)
+            // localStorage.setItem('userData', JSON.stringify(response.data));
+            return response.data; // Devolver los datos del usuario
+          } else {
+            // Eliminar el token en caso de error
+            localStorage.removeItem('token');
+            localStorage.removeItem('authUserData');
+            return null; // Indicar que la autenticación falló
+          }
+        }),
+        catchError(() => {
+          // Eliminar el token en caso de error
+          localStorage.removeItem('token');
+          return of(null);
+        })
+      );
   }
+}
 

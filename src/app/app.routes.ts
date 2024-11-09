@@ -16,23 +16,74 @@ import { authGuard } from './guards/auth.guard';
 
 
 export const routes: Routes = [
-  { path: "login", component: LoginComponent },
-  { path: "register", component: RegisterComponent },
-  { path: "home", component: InicioComponent },
-  { path: "help", component: HelpComponent },
-  { path: "main", component: MainComponent, canActivate: [ authGuard ] },
-  { path: "dashboard/profile", component: ProfileComponent, canActivate: [ authGuard ] },
-  { path: "register/business", component: BusinessComponent, canActivate: [ authGuard ] },
-  { path: "dashboard/my-events", component: EventPageComponent, canActivate: [ authGuard ] },
-  { path: "dashboard/reserves", component: ReservesPageComponent, canActivate: [ authGuard ] },
-  { path: "dashboard/events/list", component: EventListComponent, canActivate: [ authGuard ] },
-  { path: "dashboard/event/register", component: EventoComponent, canActivate: [ authGuard ] },
-  { path: "dashboard/event/edit/:id", component: EventoEditComponent, canActivate: [ authGuard ] },
   {
-    path: '', redirectTo: 'home', pathMatch: 'full'
+    path: "login",
+    component: LoginComponent
   },
   {
-    path: '**', component: PagenotfoundComponent
-
+    path: "register",
+    component: RegisterComponent
+  },
+  {
+    path: "home",
+    component: InicioComponent
+  },
+  {
+    path: "help",
+    component: HelpComponent
+  },
+  {
+    path: "main",
+    component: MainComponent,
+    canActivate: [ authGuard ],
+    data: { requiredRole: 'business-owner' }
+  },
+  {
+    path: "register/business",
+    component: BusinessComponent
+  },
+  {
+    path: "dashboard/profile",
+    component: ProfileComponent,
+    canActivate: [ authGuard ],
+    data: { requiredRole: [ 'super-admin', 'admin', 'business-owner', 'business-admin', 'business-employee', 'registered' ] }
+  },
+  {
+    path: "dashboard/my-events",
+    component: EventPageComponent,
+    data: { requiredRole: [ 'business-owner', 'business-admin', 'business-employee' ] }
+  },
+  {
+    path: "dashboard/reserves",
+    component: ReservesPageComponent,
+    canActivate: [ authGuard ],
+    data: { requiredRole: [ 'business-owner', 'business-admin', 'business-employee' ] }
+  },
+  {
+    path: "dashboard/events/list",
+    component: EventListComponent,
+    canActivate: [ authGuard ],
+    data: { requiredRole: [ 'business-owner', 'business-admin', 'business-employee' ] }
+  },
+  {
+    path: "dashboard/event/register",
+    component: EventoComponent,
+    canActivate: [ authGuard ],
+    data: { requiredRole: [ 'business-owner', 'business-admin' ] }
+  },
+  {
+    path: "dashboard/event/edit/:id",
+    component: EventoEditComponent,
+    canActivate: [ authGuard ],
+    data: { requiredRole: [ 'business-owner', 'business-admin' ] }
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    component: PagenotfoundComponent
   }
 ];
