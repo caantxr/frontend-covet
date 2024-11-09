@@ -40,17 +40,17 @@ export class AuthService {
             this._authUserData = data.data;  // En el servicio
             localStorage.setItem( 'authUserData', JSON.stringify(data.data)); // En localStorage
           }
-      
+
           // Guarda el Token
           localStorage.setItem( 'token', data.token );
-        }   
-        
+        }
+
       }),
       map( data => {
         if( ! data.ok ) {
           return data.msg;
         }
-          
+
         return data.ok;
       }),
       catchError( error => of ( 'Error en el servidor' ) )
@@ -71,8 +71,10 @@ logoutUser(): Observable<boolean> {
 verifyUser () {
   const token = localStorage.getItem( 'token' ) || '';
   const headers = new HttpHeaders().set( 'X-Token', token );
-  
-  return this.http.get<Response>('http://localhost:3000/api/auth/re-new-token', { headers } )
+
+  console.log( token );
+
+  return this.http.get<Response>('http://localhost:4000/api/auth/re-new-token', { headers } )
     .pipe (
       tap ((data)=>{
         console.log(data)

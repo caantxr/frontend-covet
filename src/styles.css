@@ -11,10 +11,10 @@
     height: 6.7rem;
 }
 .container-section{
-   
+
 }
 .section-1{
-    background-image: url(../public/media/img/palm-tree-2445107_1920.jpg); 
+    /* background-image: url(media/img/palm-tree-2445107_1920.jpg); */
 }
 .presentation.section-1 {
     background-position: 0px -6.7rem;

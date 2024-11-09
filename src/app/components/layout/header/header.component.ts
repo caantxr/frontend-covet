@@ -13,13 +13,16 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent{
   user: any
 
-  constructor(private router: Router, private authService: AuthService){}
+  constructor(private router: Router, private authService: AuthService){
+    console.log( 'Header' );
+  }
 
   get authUser() {
     return this.user;
   }
 
   ngOnInit(): void {
+    console.log( 'Header' );
     this.user = this.authService.userData;
     console.log( this.user );
   }

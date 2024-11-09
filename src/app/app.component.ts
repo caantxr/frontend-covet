@@ -15,7 +15,7 @@ export class AppComponent {
   title = 'covetFrontend';
 
   constructor(private router: Router) {
-
+    console.log('AppComponent')
   }
 
 }
