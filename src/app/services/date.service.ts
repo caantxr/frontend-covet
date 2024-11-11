@@ -19,4 +19,15 @@ convertToDateString(date: Date): string {
   
   return `${year}-${month}-${day}`; // Formato "yyyy-MM-dd"
 }
+obtenerFechaActual() {
+  const fecha = new Date();
+
+  const año = fecha.getFullYear();
+  const mes = (fecha.getMonth() + 1).toString().padStart(2, '0'); // Meses van de 0 a 11, por eso sumamos 1 y rellenamos con 0 si es necesario
+  const dia = fecha.getDate().toString().padStart(2, '0');
+
+  const fechaFormateada = `${mes}/${dia}/${año}`;
+
+  return fechaFormateada;
+}
 }

@@ -2,7 +2,7 @@
 <div class="event-page">
     <!-- Encabezado del evento con botón para volver -->
     <div class="event-header">
-        <button class="back-btn" onclick="window.history.back()">Volver a Eventos</button>
+        <button class="back-btn" >Volver a Eventos</button>
         <img [src]="event?.urlImg" alt="Evento" class="event-img">
         
     </div>
@@ -21,7 +21,26 @@
     <div class="reservation-section">
         <h3>Reservas y Precio</h3>
         <p>Precio por entrada: <strong>${{event?.price}}</strong></p>
-        <button class="reserve-btn">Reservar</button>
+        <div class="register-container">
+            <h2>Registro de negocio</h2>
+            <form (ngSubmit)="onSubmit()" [formGroup]="formData">
+                <!-- PROPIEDADES DEL USUARIO -->
+                <!-- Campo Nombre -->
+                <div class="form-group">
+                    <label for="name">Cantidad de Tickets</label>
+                    <input type="number" id="name" formControlName="numberOfTickets" required class="form-control" />
+                    <div class="error">
+                        <small *ngIf="formData.get('numberOfTickets')?.errors?.['required'] && (formData.get('numberOfTickets')?.dirty || formData.get('numberOfTickets')?.touched)">
+                        El numero de tickets es obligatorio
+                        </small>
+                        <small *ngIf="formData.get('numberOfTickets')?.errors?.['min'] && (formData.get('numberOfTickets')?.dirty || formData.get('numberOfTickets')?.touched)">
+                            El minimo de tickets es 1
+                            </small>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit reserve-btn" [disabled]="!formData.valid">Reservar</button>
+            </form>
+        </div>
     </div>
 
     <!-- Sección de comentarios -->
