@@ -60,10 +60,14 @@
       </div>
       
       <div class="main-content">
-
+        <!-- <pre>{{events | json}}</pre> -->
+         @for (item of events; track $index) {
+          <a [routerLink]="['/dashboard/event/detail',item._id]" class="item"><img [src]="item.urlImg" alt="">
+          <h2>{{item.title}}</h2>
+          <div class="price">{{item.price}}</div></a>
+          }
       </div>
       
-     
 </div>
 
 

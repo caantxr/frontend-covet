@@ -13,6 +13,7 @@ import { EventListComponent } from './pages/private/event-list/event-list.compon
 import { EventoEditComponent } from './pages/private/evento-edit/evento-edit.component';
 import { HelpComponent } from './pages/public/help/help.component';
 import { authGuard } from './guards/auth.guard';
+import { EventFormComponent } from './pages/private/event-form/event-form.component';
 
 
 export const routes: Routes = [
@@ -36,7 +37,7 @@ export const routes: Routes = [
     path: "main",
     component: MainComponent,
     canActivate: [ authGuard ],
-    data: { requiredRole: 'business-owner' }
+    data: {requiredRole: ['business-owner','registered' ] }
   },
   {
     path: "register/business",
@@ -49,7 +50,7 @@ export const routes: Routes = [
     data: { requiredRole: [ 'super-admin', 'admin', 'business-owner', 'business-admin', 'business-employee', 'registered' ] }
   },
   {
-    path: "dashboard/my-events",
+    path: "dashboard/event/detail/:id", 
     component: EventPageComponent,
     data: { requiredRole: [ 'business-owner', 'business-admin', 'business-employee' ] }
   },
@@ -57,19 +58,26 @@ export const routes: Routes = [
     path: "dashboard/reserves",
     component: ReservesPageComponent,
     canActivate: [ authGuard ],
-    data: { requiredRole: [ 'business-owner', 'business-admin', 'business-employee' ] }
+    data: { requiredRole: [ 'business-owner', 'business-admin', 'business-employee', 'registered' ] }
   },
   {
     path: "dashboard/events/list",
     component: EventListComponent,
     canActivate: [ authGuard ],
-    data: { requiredRole: [ 'business-owner', 'business-admin', 'business-employee' ] }
+    data: { requiredRole: [ 'business-owner', 'business-admin', 'business-employee','registered' ] }
   },
   {
     path: "dashboard/event/register",
     component: EventoComponent,
     canActivate: [ authGuard ],
-    data: { requiredRole: [ 'business-owner', 'business-admin' ] }
+    data: { requiredRole: [ 'business-owner', 'business-admin', 'registered' ] }
+  },
+  {
+    path: "dashboard/reserve/register",
+    component: EventFormComponent,
+    canActivate: [ authGuard ],
+    data: { requiredRole: [ 'registered' ] }
+
   },
   {
     path: "dashboard/event/edit/:id",

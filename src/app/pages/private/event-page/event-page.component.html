@@ -1,64 +1,64 @@
-<body>
-    <div class="event-page">
-        <!-- Encabezado del evento con botón para volver -->
-        <div class="event-header">
-            <button class="back-btn" onclick="window.history.back()">Volver a Eventos</button>
-            <img src="https://via.placeholder.com/800x400" alt="Evento" class="event-img">
-        </div>
-
-        <!-- Información del evento -->
-        <div class="event-info">
-            <h2>Título del Evento</h2>
-            <p class="event-date">Fecha: 20 de Noviembre de 2024</p>
-            <p class="event-location">Ubicación: Centro de Convenciones</p>
-            <p class="event-description">
-                Este evento es una gran oportunidad para disfrutar de música en vivo, buena comida y muchas actividades.
-                ¡No te lo pierdas!
-            </p>
-        </div>
-
-        <!-- Apartado de reservas y precio -->
-        <div class="reservation-section">
-            <h3>Reservas y Precio</h3>
-            <p>Precio por entrada: <strong>$20.00</strong></p>
-            <button class="reserve-btn">Reservar</button>
-        </div>
-
-        <!-- Sección de comentarios -->
-        <section class="comments-section">
-            <h3>Comentarios sobre el Evento</h3>
-            <div class="comments-list">
-                <div class="comment">
-                    <p><strong>Usuario1:</strong> ¡Este evento fue increíble! No puedo esperar a la próxima edición.</p>
-                </div>
-                <div class="comment">
-                    <p><strong>Usuario2:</strong> Muy emocionado por este evento. ¡Seguro será divertido!</p>
-                </div>
-            </div>
-            <textarea placeholder="Escribe tu comentario aquí..." class="comment-input"></textarea>
-            <button class="submit-comment">Enviar Comentario</button>
-        </section>
-
-        <!-- Sección de eventos similares -->
-        <section class="related-events">
-            <h3>Eventos Similares</h3>
-            <div class="related-events-list">
-                <div class="related-event">
-                    <img src="https://via.placeholder.com/150" alt="Evento Relacionado" class="related-event-img">
-                    <h4>Evento Relacionado 1</h4>
-                    <p>Fecha: 15 de Noviembre de 2024</p>
-                </div>
-                <div class="related-event">
-                    <img src="https://via.placeholder.com/150" alt="Evento Relacionado" class="related-event-img">
-                    <h4>Evento Relacionado 2</h4>
-                    <p>Fecha: 25 de Noviembre de 2024</p>
-                </div>
-                <div class="related-event">
-                    <img src="https://via.placeholder.com/150" alt="Evento Relacionado" class="related-event-img">
-                    <h4>Evento Relacionado 3</h4>
-                    <p>Fecha: 30 de Noviembre de 2024</p>
-                </div>
-            </div>
-        </section>
+<pre>{{event | json}}</pre>
+<div class="event-page">
+    <!-- Encabezado del evento con botón para volver -->
+    <div class="event-header">
+        <button class="back-btn" onclick="window.history.back()">Volver a Eventos</button>
+        <img [src]="event?.urlImg" alt="Evento" class="event-img">
+        
     </div>
-</body>
+
+    <!-- Información del evento -->
+    <div class="event-info">
+        <h2>{{event?.title}}</h2>
+        <p class="event-date">Fecha: {{event?.date | date}}</p>
+        <p class="event-location">Ubicación: {{event?.location}}</p>
+        <p class="event-description">
+            {{event?.description}}
+        </p>
+    </div>
+
+    <!-- Apartado de reservas y precio -->
+    <div class="reservation-section">
+        <h3>Reservas y Precio</h3>
+        <p>Precio por entrada: <strong>${{event?.price}}</strong></p>
+        <button class="reserve-btn">Reservar</button>
+    </div>
+
+    <!-- Sección de comentarios -->
+    <section class="comments-section">
+        <h3>Comentarios sobre el Evento</h3>
+        <div class="comments-list">
+            <div class="comment">
+                <p><strong>Usuario1:</strong> ¡Este evento fue increíble! No puedo esperar a la próxima edición.</p>
+            </div>
+            <div class="comment">
+                <p><strong>Usuario2:</strong> Muy emocionado por este evento. ¡Seguro será divertido!</p>
+            </div>
+        </div>
+        <textarea placeholder="Escribe tu comentario aquí..." class="comment-input"></textarea>
+        <button class="submit-comment">Enviar Comentario</button>
+    </section>
+
+    <!-- Sección de eventos similares -->
+    <section class="related-events">
+        <h3>Eventos Similares</h3>
+        <div class="related-events-list">
+            <div class="related-event">
+                <img src="https://via.placeholder.com/150" alt="Evento Relacionado" class="related-event-img">
+                <h4>Evento Relacionado 1</h4>
+                <p>Fecha: 15 de Noviembre de 2024</p>
+            </div>
+            <div class="related-event">
+                <img src="https://via.placeholder.com/150" alt="Evento Relacionado" class="related-event-img">
+                <h4>Evento Relacionado 2</h4>
+                <p>Fecha: 25 de Noviembre de 2024</p>
+            </div>
+            <div class="related-event">
+                <img src="https://via.placeholder.com/150" alt="Evento Relacionado" class="related-event-img">
+                <h4>Evento Relacionado 3</h4>
+                <p>Fecha: 30 de Noviembre de 2024</p>
+            </div>
+        </div>
+    </section>
+</div>
+

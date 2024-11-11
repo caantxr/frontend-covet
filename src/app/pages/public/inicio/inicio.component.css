@@ -7,7 +7,9 @@
     list-style: none;
     text-decoration: none;
 }
-
+.container-section{
+    background-color:black ;
+}
 .presentation-section-1{
     display: flex;
     justify-content:space-around;

@@ -1,0 +1,162 @@
+<div class="register-container">
+    <h2>Registro de negocio</h2>
+    <form (ngSubmit)="onSubmit()" [formGroup]="formData">
+      <!-- PROPIEDADES DEL USUARIO -->
+      <!-- Campo Nombre -->
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" formControlName="name" required class="form-control" />
+        <div class="error">
+          <small *ngIf="formData.get('name')?.errors?.['required'] && (formData.get('name')?.dirty || formData.get('name')?.touched)">
+            El campo 'nombre' es obligatorio
+          </small>
+        </div>
+      </div>
+  
+      <!-- Campo Edad -->
+      <div class="form-group">
+        <label for="age">Edad</label>
+        <input type="number" min="1" max="150" id="age" formControlName="age" required class="form-control" />
+        <div class="error">
+          <small *ngIf="formData.get('age')?.errors?.['required'] && (formData.get('age')?.dirty || formData.get('age')?.touched)">
+            El campo 'Edad' es obligatorio
+          </small>
+        </div>
+      </div>
+  
+      <!-- Campo Correo Electrónico -->
+      <div class="form-group">
+        <label for="email">Correo Electrónico</label>
+        <input type="email" id="email" formControlName="email" required class="form-control" />
+        <div class="error">
+          <small *ngIf="formData.get('email')?.errors?.['required'] && (formData.get('email')?.dirty || formData.get('email')?.touched)">
+            El campo 'email' es obligatorio
+          </small>
+          <small *ngIf="formData.get('email')?.errors?.['email'] && (formData.get('email')?.dirty || formData.get('email')?.touched)">
+            Email con formato no válido
+          </small>
+        </div>
+      </div>
+  
+      <!-- Campo Contraseña -->
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" formControlName="password" required class="form-control" />
+        <div class="error">
+          <small *ngIf="formData.get('password')?.errors?.['required'] && (formData.get('password')?.dirty || formData.get('password')?.touched)">
+            El campo 'contraseña' es obligatorio
+          </small>
+          <small *ngIf="formData.get('password')?.errors?.['minlength'] && (formData.get('password')?.dirty || formData.get('password')?.touched)">
+            La contraseña debe tener mínimo 8 caracteres
+          </small>
+          <small *ngIf="formData.get('password')?.errors?.['maxlength'] && (formData.get('password')?.dirty || formData.get('password')?.touched)">
+            La contraseña debe tener máximo 20 caracteres
+          </small>
+        </div>
+      </div>
+  
+      <!-- PROPIEDADES BUSINESS -->
+      <div class="form-group">
+        <label for="nameBussiness">Nombre del negocio</label>
+        <input type="text" id="nameBussiness" formControlName="nameBussiness" required class="form-control" />
+        <div class="error">
+          <small *ngIf="formData.get('nameBussiness')?.errors?.['required'] && (formData.get('nameBussiness')?.dirty || formData.get('nameBussiness')?.touched)">
+            El campo 'nombre del negocio' es obligatorio
+          </small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="address">Direccion</label>
+        <input type="text" id="address" formControlName="address" required class="form-control" />
+        <div class="error">
+          <small *ngIf="formData.get('address')?.errors?.['required'] && (formData.get('address')?.dirty || formData.get('address')?.touched)">
+            El campo 'Direccion' es obligatorio
+          </small>
+        </div>
+      </div>
+  
+      <!-- Campo Descripción -->
+      <div class="form-group">
+        <label for="description">Descripción</label>
+        <input type="text" id="description" formControlName="description" required class="form-control" />
+        <div class="error">
+          <small *ngIf="formData.get('description')?.errors?.['required'] && (formData.get('description')?.dirty || formData.get('description')?.touched)">
+            El campo 'descripción' es obligatorio
+          </small>
+        </div>
+      </div>
+  
+      <!-- Campo Ciudad -->
+      <div class="form-group">
+        <label for="city">Ciudad</label>
+        <!-- <input type="text" id="city" formControlName="city" required class="form-control" /> -->
+         <select formControlName="city" id="city" class="form-control">
+          <!-- @for (ciudad of ciudades; track $index) {
+            <option [value]="ciudad.name">
+              {{ciudad.name}}
+            </option>
+          } -->
+  
+         </select>
+        <div class="error">
+          <small *ngIf="formData.get('city')?.errors?.['required'] && (formData.get('city')?.dirty || formData.get('city')?.touched)">
+            El campo 'ciudad' es obligatorio
+          </small>
+        </div>
+      </div>
+  
+      <!-- Campo Coordenadas -->
+      <div class="form-group">
+        <label for="postalCode">Código Postal</label>
+        <input type="text" id="postalCode" formControlName="postalCode" required class="form-control" />
+        <div class="error">
+          <small *ngIf="formData.get('postalCode')?.errors?.['required'] && (formData.get('postalCode')?.dirty || formData.get('postalCode')?.touched)">
+            El campo 'Código Postal' es obligatorio
+          </small>
+        </div>
+      </div>
+  
+      <!-- Campo Contacto -->
+      <div class="form-group">
+        <label for="contact">Contacto</label>
+        <input type="text" id="contact" formControlName="contact" required class="form-control" />
+        <div class="error">
+          <small *ngIf="formData.get('contact')?.errors?.['required'] && (formData.get('contact')?.dirty || formData.get('contact')?.touched)">
+            El campo 'contacto' es obligatorio
+          </small>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="emailBussiness">Correo Electrónico del negocio</label>
+        <input type="emailBussiness" id="emailBussiness" formControlName="emailBussiness" required class="form-control" />
+        <div class="error">
+          <small *ngIf="formData.get('emailBussiness')?.errors?.['required'] && (formData.get('emailBussiness')?.dirty || formData.get('emailBussiness')?.touched)">
+            El campo 'Correo electronico del negocio' es obligatorio
+          </small>
+          <small *ngIf="formData.get('emailBussiness')?.errors?.['emailBussiness'] && (formData.get('emailBussiness')?.dirty || formData.get('emailBussiness')?.touched)">
+            Email con formato no válido
+          </small>
+        </div>
+      </div>
+  
+      <!-- Campo Teléfono -->
+      <div class="form-group">
+        <label for="phone">Teléfono</label>
+        <input type="text" id="phone" formControlName="phone" required class="form-control" />
+        <div class="error">
+          <small *ngIf="formData.get('phone')?.errors?.['required'] && (formData.get('phone')?.dirty || formData.get('phone')?.touched)">
+            El campo 'teléfono' es obligatorio
+          </small>
+          <small *ngIf="formData.get('phone')?.errors?.['pattern'] && (formData.get('phone')?.dirty || formData.get('phone')?.touched)">
+            Solo se permiten números en 'teléfono'
+          </small>
+        </div>
+      </div>
+  
+      <button type="submit" class="btn-submit" [disabled]="!formData.valid">Registrarse</button>
+    </form>
+  </div>
+  
+  

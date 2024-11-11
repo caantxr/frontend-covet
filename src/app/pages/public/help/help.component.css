@@ -1,73 +1,130 @@
+/* Contenedor principal de la sección de ayuda */
 .help-container {
-    font-family: Arial, sans-serif;
-    color: #fff;
-    background-color: #1E2A33; 
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #1E2A33; 
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Estilo para la cabecera de la sección */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2.8rem;
+  color: #3A8DFF; 
+  margin-bottom: 15px;
+}
+
+.header p {
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Contenedor para todo el contenido de ayuda */
+.help-content {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+/* Secciones de ayuda individuales */
+.help-section {
+  background-color: #2E3C4A;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.help-section h2 {
+  font-size: 1.9rem;
+  color: #3A8DFF;
+  margin-bottom: 15px;
+}
+
+.help-section p {
+  font-size: 1.2rem;
+  color: #ddd;
+  line-height: 1.7;
+}
+
+/* Botón de contacto */
+.contact-btn {
+  background-color: #3A8DFF;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.contact-btn:hover {
+  background-color: #1E6BFF; 
+  transform: translateY(-2px);
+}
+
+/* Estilo para el pie de página */
+.footer {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
   .header h1 {
-    font-size: 2.5rem;
-    color: #3A8DFF; 
-    margin-bottom: 10px;
+    font-size: 2.4rem;
   }
-  
-  .header p {
-    font-size: 1.1rem;
-    color: #ccc;
-  }
-  
- 
-  .help-content {
-    width: 80%;
-    max-width: 1000px;
-  }
-  
-  .help-section {
-    background-color: #2E3C4A;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-  }
-  
+
   .help-section h2 {
-    font-size: 1.8rem;
-    color: #3A8DFF;
-    margin-bottom: 10px;
+    font-size: 1.6rem;
   }
-  
+
   .help-section p {
     font-size: 1.1rem;
-    color: #ddd;
-    line-height: 1.6;
   }
 
   .contact-btn {
-    background-color: #3A8DFF;
-    color: #fff;
-    font-size: 1.2rem;
     padding: 12px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .contact-btn:hover {
-    background-color: #1E6BFF; 
-  }
-  
-
-  .footer {
-    text-align: center;
-    margin-top: 40px;
     font-size: 1rem;
-    color: #ccc;
   }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+
+  .help-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .help-section p {
+    font-size: 1rem;
+  }
+
+  .contact-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}

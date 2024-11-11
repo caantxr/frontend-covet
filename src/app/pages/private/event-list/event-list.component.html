@@ -23,7 +23,7 @@
             </td>
             <td>${{event.price}}</td>
             <td>
-                <button class="delete" (click)="delete(event._id)">
+                <button class="delete" (click)="delete(event._id)" aria-label="Eliminar item">
                     <fa-icon [icon]="faTrash"></fa-icon>
                 </button>
                 <span class="edit" [routerLink]="['/dashboard/event/edit', event._id]">

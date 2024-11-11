@@ -1,106 +1,190 @@
-footer{
+/* Estilo general del footer */
+footer {
     background-color: rgb(17, 16, 16);
     color: #fff;
 }
+
+/* Contenedor principal del footer */
 .footer-info {
     width: 90%;
     margin: 0 auto;
     display: flex;
     padding: 50px 0;
-}
-.footer-info .footer-width{
-    padding: 0 15px;
-}
-.footer-info h2 {
-    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
-.about , .contact {
+/* Cada sección del footer */
+.footer-width {
+    padding: 0 15px;
+    flex: 1 1 33%;
+}
+
+/* Títulos de las secciones del footer */
+.footer-info h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* Estilo para la sección 'Sobre Nosotros' */
+.about, .contact {
     width: 40%;
 }
-.link{
+
+/* Estilo para la sección de enlaces rápidos */
+.link {
     width: 20%;
 }
+
+/* Estilo para las redes sociales */
 .social-media {
     margin-top: 30px;
 }
+
 .social-media ul {
     display: flex;
+    gap: 20px;
 }
+
 .social-media ul li a {
     display: inline-block;
-    margin-right: 50px;
     width: 50px;
     height: 50px;
-    padding-top: 12px;
     background-color: transparent;
     border: 1px solid #fff;
     text-align: center;
     color: white;
-
+    padding-top: 12px;
+    border-radius: 50%;
+    transition: background-color 0.3s, color 0.3s;
 }
-.social-media ul li a:hover{
+
+.social-media ul li a:hover {
     background-color: #fff;
     color: #000;
-    transition: .3;
-}
-.link ul li a {
-    margin-bottom: 15px;
-    font-size: 20px;
-    color: white;
-}
-.link ul li a:hover {
-    color: #000;
 }
 
+/* Estilo de los enlaces en la sección de enlaces rápidos */
+.link ul li {
+    margin-bottom: 15px;
+}
+
+.link ul li a {
+    font-size: 20px;
+    color: white;
+    display: block;
+    text-decoration: none;  /* Sin subrayado predeterminado */
+    position: relative; /* Necesario para posicionar el pseudoelemento ::before */
+}
+
+/* Pseudoelemento ::before para la línea debajo del enlace */
+.link ul li {
+    display: flex; /* Usamos flexbox para alineación */
+    align-items: center; /* Centrar el contenido dentro del li */
+    margin-bottom: 15px;
+    gap: 1rem; /* Separación entre los elementos */
+    position: relative;  /* Necesario para posicionar el pseudoelemento ::before */
+    padding-bottom: 20px; /* Espacio extra debajo para la línea */
+}
+
+.link ul li a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;  /* Sin subrayado predeterminado */
+    position: relative;  /* Asegura que el pseudoelemento se posicione respecto al enlace */
+}
+
+/* Pseudoelemento ::before para la línea debajo del enlace */
+.link ul li a::before {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Coloca la línea en la parte inferior del enlace */
+    left: 0;
+    width: 0; /* Comienza con un ancho de 0 */
+    height: 2px; /* Define la altura de la línea */
+    background: white; /* Color de la línea */
+    transition: width 0.3s ease; /* Transición suave */
+}
+
+/* Cuando el enlace está en hover, la línea se expande */
+.link ul li a:hover::before {
+    width: 100%; /* La línea se expande al ancho completo del enlace */
+}
+
+/* Cambiar el color del texto al hacer hover */
+.link ul li a:hover {
+    color: #1E6BFF; /* Cambia el color del texto al hacer hover */
+}
+
+
+
+/* Estilo para las secciones de contacto */
 .contact ul li {
     display: flex;
     align-items: center;
     margin-right: 15px;
     gap: 1rem;
+    position: relative;  /* Necesario para posicionar el pseudoelemento ::before */
     padding-bottom: 20px;
 }
 
 .contact ul li a {
     color: white;
-
+    text-decoration: none;  /* Sin subrayado predeterminado */
+    position: relative;  /* Asegura que el pseudoelemento se posicione respecto al enlace */
 }
-.copy-right{
+
+/* Pseudoelemento ::before para la línea bajo el enlace */
+.contact ul li a::before {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Coloca la línea en la parte inferior del enlace */
+    left: 0;
+    width: 0; /* Comienza con un ancho de 0 */
+    height: 2px; /* Define la altura de la línea */
+    background: white; /* Color de la línea */
+    transition: width 0.3s ease; /* Transición suave */
+}
+
+/* Cuando el enlace está en hover, la línea se expande */
+.contact ul li a:hover::before {
+    width: 100%; /* La línea se expande al ancho completo del enlace */
+}
+
+/* Color del texto en hover */
+.contact ul li a:hover {
+    color: #1E6BFF;  /* Cambia el color del texto al hacer hover */
+}
+
+
+/* Estilo para el texto de derechos de autor */
+.copy-right {
     padding: 15px 0;
     text-align: center;
     background-color: #000;
+    font-size: 0.9rem;
 }
 
-
-
-.contact ul li:before {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 0;
-    height:2px;
-    background: white;
-    transition: .3s;
-    }
-.contact ul li:hover:before{
-    width: 100%;
-}
-
-@media screen and (max-width:992px){
-    .about , .contact{
+/* Media Queries para dispositivos móviles */
+@media screen and (max-width: 992px) {
+    .about, .contact {
         width: 35%;
     }
-    .link{
+    .link {
         width: 30%;
     }
 }
-@media screen and (max-width:768px){
-    .about , .contact, .link{
+
+@media screen and (max-width: 768px) {
+    .about, .contact, .link {
         width: 100%;
         margin-bottom: 30px;
     }
-    .footer-info{
+
+    .footer-info {
         flex-direction: column;
+    }
+
+    .social-media ul {
+        gap: 15px;
     }
 }
