@@ -37,7 +37,7 @@ export class EventPageComponent {
     if (this.formData.valid) {
       console.log(this.formData.value);
 
-      if (this.formData.value){}
+// to do validar reservas con la capacidad del evento
       const dataReserve = {
         userId: this.authService.userData._id,
         eventId: this.event._id,
