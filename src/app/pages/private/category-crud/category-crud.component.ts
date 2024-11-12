@@ -37,11 +37,11 @@ export class CategoryCrudComponent implements OnInit {
   onSubmit() {
     if (this.categoryForm.valid) {
       this.categoriesService.createCategory(this.categoryForm.value).subscribe(
-        () => {
+        (data) => {
+          console.log(data);
           this.loadCategories();
           this.categoryForm.reset();
-        },
-        error => console.error('Error al crear categoría:', error)
+        }
       );
     }
   }
@@ -49,8 +49,9 @@ export class CategoryCrudComponent implements OnInit {
   // Eliminar una categoría por ID
   deleteCategory(id: string) {
     this.categoriesService.deleteCategory(id).subscribe(
-      () => this.loadCategories(),
-      error => console.error('Error al eliminar categoría:', error)
+      (data)=>{console.log(data);
+        this.loadCategories()
+      }
     );
   }
 }

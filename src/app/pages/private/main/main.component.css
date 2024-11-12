@@ -165,6 +165,7 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"]{
     width: 80px;
     background-color: #12171e;
     padding: .4rem .8rem;
+    height: 100%;
     transition: all 0.5 ease;
     
 }
@@ -298,45 +299,69 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"]{
 
 
 /* prueba */
-a{
+a {
     color: unset;
     text-decoration: none;
 }
-.main-content{
 
+/* Contenedor principal */
+.main-content {
     text-align: center;
     padding-top: 9px;
     padding-bottom: 4rem;
 }
-.title{
+
+/* Título principal */
+.title {
     font-size: xx-large;
     padding: 20px 0;
 }
-.listProduct .item img{
-    height: 15rem;
-    width: 99%;
-    filter: drop-shadow(0 10px 20px #0009);
-    border: 2px solid black;
-    border-radius: 16px;
-    object-fit: cover;
+
+/* Contenedor de las cartas (items) usando Flexbox */
+.listProduct {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no hay suficiente espacio */
+    justify-content: space-between; /* Espacio entre las cartas */
+    gap: 20px; /* Espacio entre las cartas */
+    padding: 0 10px; /* Añadir espacio a los lados */
 }
-.listProduct{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-.listProduct .item{
+
+/* Estilo de cada carta (item) */
+.listProduct .item {
     background-color: #EEEEE6;
     padding: 20px;
     border-radius: 20px;
+    width: calc(25% - 20px); /* Ajusta el tamaño de las cartas para que ocupen 25% del ancho */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin-bottom: 20px; /* Espacio abajo entre las cartas */
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos dentro de la carta se alineen verticalmente */
+    justify-content: space-between; /* Distribuye el contenido de manera que haya espacio entre las imágenes y los textos */
 }
-.listProduct .item h2{
+
+/* Imagen dentro de la carta */
+.listProduct .item img {
+    height: 15rem;
+    width: 100%; /* Hacer que la imagen ocupe todo el ancho disponible */
+    filter: drop-shadow(0 10px 20px #0009);
+    border: 2px solid black;
+    border-radius: 16px;
+    object-fit: cover; /* Asegura que las imágenes no se deformen */
+    margin-bottom: 15px; /* Espacio abajo de la imagen */
+}
+
+/* Título de la carta */
+.listProduct .item h2 {
     font-weight: 500;
     font-size: large;
+    margin: 10px 0;
 }
-.listProduct .item .price{
+
+/* Precio de la carta */
+.listProduct .item .price {
     letter-spacing: 7px;
     font-size: small;
+    color: #555;
 }
 /* detail page */
 

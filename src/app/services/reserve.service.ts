@@ -10,4 +10,10 @@ export class ReserveService {
   registrarReserva(newReserve: any){
     return this.http.post <any> ('http://localhost:4000/api/reservations', newReserve)
   }
+  obtenerReservas(){
+    return this.http.get <any> ('http://localhost:4000/api/reservations')
+  }
+  obtenerReservasUserId(id:any){
+    return this.http.get <any> (`http://localhost:4000/api/reservations/user/${id}`)
+  }
 }

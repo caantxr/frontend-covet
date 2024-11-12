@@ -6,140 +6,404 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
+    color: #333;
 }
 
-/* Página del evento */
+/* Estilos de la página de eventos */
 .event-page {
     width: 80%;
-    margin: 20px auto;
+    margin: 40px auto;
     background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 
 /* Botón para volver */
 .back-btn {
-    padding: 10px 15px;
-    background-color: #6c757d; /* Color gris */
-    color: #fff;
+    padding: 12px 20px;
+    background-color: #333; /* Fondo negro */
+    color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    margin: 20px; /* Espacio alrededor del botón */
+    margin: 20px;
     font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #444;
 }
 
 /* Imagen del evento */
 .event-header {
     position: relative;
     width: 100%;
+    height: 300px;
+    overflow: hidden;
 }
 
 .event-img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6); /* Oscurece un poco la imagen */
 }
 
 /* Información del evento */
 .event-info {
-    padding: 20px;
+    padding: 25px;
+    background-color: #fff;
 }
 
 .event-info h2 {
-    font-size: 1.8em;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #222;
     margin-bottom: 10px;
 }
 
 .event-date, .event-location {
-    color: #555;
+    color: #666;
+    font-size: 1rem;
     margin-bottom: 10px;
 }
 
 .event-description {
-    margin: 15px 0;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
 }
 
-/* Apartado de reservas */
+/* Apartado de reservas y precio */
 .reservation-section {
-    padding: 20px;
-    background-color: #f8f8f8;
+    background-color: #f0f8ff; /* Un tono suave de azul */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
 }
 
 .reservation-section h3 {
-    margin-bottom: 10px;
+    font-size: 2.2rem;
+    color: #222;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
 }
 
-.reserve-btn, .submit-comment {
-    padding: 10px 15px;
+.reservation-section p {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.register-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.register-container h2 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Campos de entrada */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Input de cantidad de tickets */
+input[type="number"] {
+    padding: 14px;
+    font-size: 1.1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+/* Efecto en el campo de número */
+input[type="number"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+/* Mensajes de error */
+.error {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Estilo para el botón de reserva */
+.reserve-btn {
+    padding: 14px 24px;
+    font-size: 1.2rem;
+    font-weight: 600;
     background-color: #007bff;
-    color: #fff;
+    color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    margin-top: 10px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+}
+
+.reserve-btn:disabled {
+    background-color: #b0c4de;
+    cursor: not-allowed;
+}
+
+.reserve-btn:hover:not(:disabled) {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+/* Media queries para responsividad */
+
+/* Para tabletas */
+@media (max-width: 768px) {
+    .reservation-section {
+        padding: 25px;
+    }
+
+    .reserve-btn {
+        font-size: 1.1rem;
+    }
+
+    .form-group {
+        gap: 15px;
+    }
+}
+
+/* Para dispositivos móviles */
+@media (max-width: 480px) {
+    .event-info h2 {
+        font-size: 1.6rem;
+    }
+
+    .reserve-btn {
+        font-size: 1rem;
+    }
+
+    .form-group {
+        gap: 8px;
+    }
+
+    .register-container {
+        padding: 20px;
+        width: 90%;
+    }
 }
 
 /* Sección de comentarios */
+/* Sección de comentarios */
 .comments-section {
-    padding: 20px;
+    padding: 30px;
     background-color: #fff;
-    margin-top: 20px;
+    margin-top: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Título de los comentarios */
+.comments-section h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Lista de comentarios */
 .comments-list {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .comment {
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
+/* Efecto hover en los comentarios */
+.comment:hover {
+    transform: translateY(-5px); /* Eleva ligeramente el comentario */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+}
+
+/* Estilos para el texto del comentario */
+.comment p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Estilos para el nombre del usuario */
+.comment strong {
+    color: #007bff;
+    font-weight: 600;
+}
+
+/* Estilo del área de comentarios */
 .comment-input {
     width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
 }
 
+/* Foco en el área de comentarios */
+.comment-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Botón para enviar el comentario */
+.submit-comment {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Efecto hover sobre el botón de enviar comentario */
+.submit-comment:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+/* Estado deshabilitado del botón de enviar comentario */
+.submit-comment:disabled {
+    background-color: #b0c4de;
+    cursor: not-allowed;
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 768px) {
+    .comments-section {
+        padding: 20px;
+    }
+
+    .comment-input {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .submit-comment {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .comments-section {
+        padding: 15px;
+    }
+
+    .comment-input {
+        font-size: 0.9rem;
+    }
+
+    .submit-comment {
+        font-size: 1rem;
+    }
+}
+
+
+/* Sección de eventos similares */
 /* Sección de eventos similares */
 .related-events {
-    padding: 20px;
+    padding: 30px;
     background-color: #f8f8f8;
+    margin-top: 40px;
 }
 
 .related-events h3 {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
 }
 
 .related-events-list {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .related-event {
     background-color: #fff;
-    border-radius: 8px;
-    padding: 10px;
+    border-radius: 12px;
+    padding: 15px;
     text-align: center;
-    width: 150px;
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
+/* Efecto hover en las cartas de eventos relacionados */
+.related-event:hover {
+    transform: translateY(-5px); /* Eleva la carta ligeramente */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+    border: 1px solid #007bff; /* Añade un borde azul */
+}
+
+/* Imagen de evento relacionado */
 .related-event-img {
     width: 100%;
-    height: 100px;
+    height: 150px;
     object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
-/* Media queries para responsividad */
+/* Efecto hover en la imagen dentro de la carta */
+.related-event:hover .related-event-img {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen */
+}
 
-/* Ajustes para tablets y pantallas medianas */
+/* Ajustes de estilo para móviles */
 @media (max-width: 768px) {
     .related-events-list {
         flex-direction: column;
@@ -147,25 +411,12 @@ body {
     }
 
     .related-event {
-        width: 90%;
-    }
-
-    .comments-section {
-        padding: 10px;
+        width: 80%;
     }
 }
 
-/* Ajustes para móviles */
 @media (max-width: 480px) {
-    .event-info h2 {
-        font-size: 1.5em;
-    }
-
-    .reserve-btn, .submit-comment {
-        width: 100%;
-    }
-
     .related-event {
-        width: 100%;
+        width: 90%;
     }
 }

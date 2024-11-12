@@ -1,4 +1,4 @@
-<pre>{{event | json}}</pre>
+<!-- <pre>{{event | json}}</pre> -->
 <div class="event-page">
     <!-- Encabezado del evento con botón para volver -->
     <div class="event-header">
@@ -20,7 +20,7 @@
     <!-- Apartado de reservas y precio -->
     <div class="reservation-section">
         <h3>Reservas y Precio</h3>
-        <p>Precio por entrada: <strong>${{event?.price}}</strong></p>
+        <p>Precio por entrada:  <strong>${{event?.price}}</strong></p>
         <div class="register-container">
             <h2>Registro de negocio</h2>
             <form (ngSubmit)="onSubmit()" [formGroup]="formData">

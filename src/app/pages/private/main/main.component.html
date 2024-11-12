@@ -12,21 +12,21 @@
             <img src="media/img/party-629241_1920.jpg" alt="img2">
         </div>
         <div class="item-slide">
-            <img src="media/img/5a851bd7469c8ff9c4238fdfae3ef371.jpg" alt="img1">
+            <img src="media/img/5a851bd7469c8ff9c4238fdfae3ef371.jpg" alt="img3">
         </div>
     </div>
 
     <div class="pagination">
         <label class="pagination-item" for="1">
-            <img src="media/img/palm-tree-2445107_1920.jpg">
+            <img src="media/img/palm-tree-2445107_1920.jpg" alt="img4">
         </label>
 
         <label class="pagination-item" for="2">
-            <img src="media/img/party-629241_1920.jpg">
+            <img src="media/img/party-629241_1920.jpg" alt="img5">
         </label>
 
         <label class="pagination-item" for="3">
-            <img src="media/img/5a851bd7469c8ff9c4238fdfae3ef371.jpg">
+            <img src="media/img/5a851bd7469c8ff9c4238fdfae3ef371.jpg" alt="img6">
         </label>
     </div>
 </div>
@@ -61,12 +61,16 @@
       
       <div class="main-content">
         <!-- <pre>{{events | json}}</pre> -->
-         @for (item of events; track $index) {
-          <a [routerLink]="['/dashboard/event/detail',item._id]" class="item"><img [src]="item.urlImg" alt="">
-          <h2>{{item.title}}</h2>
-          <div class="price">{{item.price}}</div></a>
-          }
-      </div>
+        <div class="listProduct">
+            @for (item of events; track $index) {
+                <a [routerLink]="['/dashboard/event/detail',item._id]" class="item">
+                    <img [src]="item.urlImg" alt="">
+                    <h2>{{item.title}}</h2>
+                    <div class="price">{{item.price}}</div>
+                </a>
+            }
+        </div>
+    </div>
       
 </div>
 

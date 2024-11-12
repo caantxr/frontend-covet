@@ -1,39 +1,22 @@
-
-<body>
-    <div class="reservations-page">
-        <h1>Mis Reservas</h1>
-        <button class="back-btn" onclick="window.history.back()">Volver</button>
-        
-        <div class="reservations-list">
+<!-- <pre>{{reserve | json }}</pre> -->
+<div class="reservations-page">
+    <h1>Mis Reservas</h1>
+    <button class="back-btn" onclick="window.history.back()">Volver</button>
+    
+    <div class="reservations-list">
+        @for (reserve of reserves; track $index) {
             <div class="reservation-item">
                 <div class="reservation-header">
-                    <img src="https://via.placeholder.com/50" alt="Evento" class="event-icon">
+                    <img [src]="reserve?.urlImg" alt="Evento" class="event-icon">
                     <h2>Título del Evento 1</h2>
                 </div>
-                <p><strong>Fecha:</strong> 20 de Noviembre de 2024</p>
-                <p><strong>Ubicación:</strong> Centro de Convenciones</p>
-                <button class="cancel-btn">Cancelar Reserva</button>
+                <p><strong>Fecha:</strong> {{reserve?.date}}</p>
+                <p><strong>Ubicación:</strong> {{reserve?.location}}</p>
+                <button (click)="cancelarReserva(reserve?._id)" class="cancel-btn">Cancelar Reserva</button>
             </div>
-            <div class="reservation-item">
-                <div class="reservation-header">
-                    <img src="https://via.placeholder.com/50" alt="Evento" class="event-icon">
-                    <h2>Título del Evento 2</h2>
-                </div>
-                <p><strong>Fecha:</strong> 25 de Noviembre de 2024</p>
-                <p><strong>Ubicación:</strong> Auditorio Municipal</p>
-                <button class="cancel-btn">Cancelar Reserva</button>
-            </div>
-            <div class="reservation-item">
-                <div class="reservation-header">
-                    <img src="https://via.placeholder.com/50" alt="Evento" class="event-icon">
-                    <h2>Título del Evento 3</h2>
-                </div>
-                <p><strong>Fecha:</strong> 30 de Noviembre de 2024</p>
-                <p><strong>Ubicación:</strong> Parque Central</p>
-                <button class="cancel-btn">Cancelar Reserva</button>
-            </div>
-            <!-- Agrega más elementos de reserva según sea necesario -->
-        </div>
+        }
+
+        
+        <!-- Agrega más elementos de reserva según sea necesario -->
     </div>
-    <script src="reservations-scripts.js"></script>
-</body>
+</div>

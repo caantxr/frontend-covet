@@ -14,6 +14,7 @@ import { EventoEditComponent } from './pages/private/evento-edit/evento-edit.com
 import { HelpComponent } from './pages/public/help/help.component';
 import { authGuard } from './guards/auth.guard';
 import { EventFormComponent } from './pages/private/event-form/event-form.component';
+import { CategoryCrudComponent } from './pages/private/category-crud/category-crud.component';
 
 
 export const routes: Routes = [
@@ -37,7 +38,7 @@ export const routes: Routes = [
     path: "main",
     component: MainComponent,
     canActivate: [ authGuard ],
-    data: {requiredRole: ['business-owner','registered' ] }
+    data: {requiredRole: ['super-admin','business-owner','registered' ] }
   },
   {
     path: "register/business",
@@ -50,6 +51,13 @@ export const routes: Routes = [
     data: { requiredRole: [ 'super-admin', 'admin', 'business-owner', 'business-admin', 'business-employee', 'registered' ] }
   },
   {
+    path: "dashboard/categories",
+    component: CategoryCrudComponent,
+    canActivate: [authGuard],
+    data:{requiredRole: ['super-admin', 'admin', 'business-owner', 'business-admin', 'business-employee', 'registered']}
+
+  },
+  {
     path: "dashboard/event/detail/:id", 
     component: EventPageComponent,
     data: { requiredRole: [ 'business-owner', 'business-admin', 'business-employee' ] }
@@ -58,7 +66,7 @@ export const routes: Routes = [
     path: "dashboard/reserves",
     component: ReservesPageComponent,
     canActivate: [ authGuard ],
-    data: { requiredRole: [ 'business-owner', 'business-admin', 'business-employee', 'registered' ] }
+    data: { requiredRole: [ 'business-owner', 'business-admin', 'business-employee', 'registered','super-admin' ] }
   },
   {
     path: "dashboard/events/list",
