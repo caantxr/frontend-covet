@@ -8,9 +8,9 @@
         <div class="header">
             <span class="logo">Covet</span>
             <nav class="navbar">
-                <span><a [routerLink]="['/home']"></a>Inicio</span>
-                <span><a [routerLink]="['/home']"></a>Planes</span>
-                <span><a [routerLink]="['/dashboard/reserves']"></a>Reserva</span>
+                <span routerLink="/home" routerLinkActive="router-link-active">Inicio</span>
+                <span routerLink="/dashboard/events/list" routerLinkActive="router-link-active">Eventos</span>
+                <span routerLink="/dashboard/reserves" routerLinkActive="router-link-active">Reserva</span>
             </nav>
             <div class="auth-buttons">
                 <span routerLink="login" routerLinkActive="router-link-active">

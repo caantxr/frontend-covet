@@ -25,16 +25,35 @@ thead th {
     border-bottom: 2px solid #39424e; /* Línea separadora */
 }
 
+/* Estilo para las celdas del cuerpo */
+td {
+    padding: 15px;
+    border-bottom: 1px solid #39424e; /* Separación de filas */
+}
+
+/* Efecto hover en las filas de la tabla */
 tbody tr:hover {
     background-color: #1d2733; /* Hover efecto más claro */
     transform: scale(1.02);
     transition: all 0.3s ease-in-out;
 }
 
-/* Estilo para las celdas del cuerpo */
-td {
-    padding: 15px;
-    border-bottom: 1px solid #39424e; /* Separación de filas */
+/* Estilo para las categorías */
+td span {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #39424e;
+    border-radius: 12px;
+    font-size: 12px;
+    color: #e0e0e0;
+}
+
+td span:hover {
+    background-color: #fff;
+    color: #000;
+    transform: scale(1.1);
+    transition: 0.3s;
 }
 
 /* Estilo para el botón de eliminar */
@@ -65,20 +84,32 @@ span.edit:hover {
     color: #66ff66;
 }
 
-/* Estilo para las categorías */
-td span {
-    display: inline-block;
-    margin: 5px;
-    padding: 5px 10px;
-    background-color: #39424e;
-    border-radius: 12px;
-    font-size: 12px;
-    color: #e0e0e0;
+/* Estilo para centrar y darle bordes al botón "Añadir evento" */
+.insane-link {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 12px 30px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-td span:hover {
-    background-color: #fff;
-    color: #000;
-    transform: scale(1.1);
-    transition: 0.3s;
+.insane-link:hover {
+    background-color: #0044cc; /* Azul brillante */
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.insane-link:active {
+    background-color: #333;
+    transform: scale(1);
 }

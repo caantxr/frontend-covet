@@ -60,7 +60,7 @@ export const routes: Routes = [
   {
     path: "dashboard/event/detail/:id", 
     component: EventPageComponent,
-    data: { requiredRole: [ 'business-owner', 'business-admin', 'business-employee' ] }
+    data: { requiredRole: [ 'business-owner', 'business-admin', 'business-employee','super-admin' ] }
   },
   {
     path: "dashboard/reserves",
@@ -72,26 +72,26 @@ export const routes: Routes = [
     path: "dashboard/events/list",
     component: EventListComponent,
     canActivate: [ authGuard ],
-    data: { requiredRole: [ 'business-owner', 'business-admin', 'business-employee','registered' ] }
+    data: { requiredRole: [ 'business-owner', 'business-admin', 'business-employee','registered','super-admin'  ] }
   },
   {
     path: "dashboard/event/register",
     component: EventoComponent,
     canActivate: [ authGuard ],
-    data: { requiredRole: [ 'business-owner', 'business-admin', 'registered' ] }
+    data: { requiredRole: [ 'business-owner', 'business-admin', 'registered','super-admin' ] }
   },
   {
     path: "dashboard/reserve/register",
     component: EventFormComponent,
     canActivate: [ authGuard ],
-    data: { requiredRole: [ 'registered' ] }
+    data: { requiredRole: [ 'registered' ,'super-admin'] }
 
   },
   {
     path: "dashboard/event/edit/:id",
     component: EventoEditComponent,
     canActivate: [ authGuard ],
-    data: { requiredRole: [ 'business-owner', 'business-admin' ] }
+    data: { requiredRole: [ 'business-owner', 'business-admin','super-admin' ] }
   },
   {
     path: '',
