@@ -6,9 +6,20 @@ import { Injectable } from '@angular/core';
 })
 export class CategoriesService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getCategories(){
-    return this.http.get<any>('http://localhost:4000/api/categories')
+  // Obtener categorías
+  getCategories() {
+    return this.http.get<any>('http://localhost:4000/api/categories');
+  }
+
+  // Crear una nueva categoría
+  createCategory(category: any) {
+    return this.http.post<any>('http://localhost:4000/api/categories', category);
+  }
+
+  // Eliminar una categoría
+  deleteCategory(id: string) {
+    return this.http.delete<any>(`http://localhost:4000/api/categories/${id}`);
   }
 }
