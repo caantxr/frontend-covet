@@ -1,22 +1,49 @@
-<!-- <pre>{{reserve | json }}</pre> -->
+<!-- <pre>{{reserves | json }}</pre> -->
 <div class="reservations-page">
     <h1>Mis Reservas</h1>
-    <button class="back-btn" onclick="window.history.back()">Volver</button>
-    
+    <h2>Reservas disponibles</h2>
     <div class="reservations-list">
-        @for (reserve of reserves; track $index) {
-            <div class="reservation-item">
-                <div class="reservation-header">
-                    <img [src]="reserve?.urlImg" alt="Evento" class="event-icon">
-                    <h2>Título del Evento 1</h2>
-                </div>
-                <p><strong>Fecha:</strong> {{reserve?.date}}</p>
-                <p><strong>Ubicación:</strong> {{reserve?.location}}</p>
-                <button (click)="cancelarReserva(reserve?._id)" class="cancel-btn">Cancelar Reserva</button>
-            </div>
+        @if (reservesAvailable?.length == 0) {
+            <p>No hay reservas disponibles</p>
         }
-
+        @else {
+            @for (reserve of reservesAvailable; track $index) {
+                <div class="reservation-item">
+                    <div class="reservation-header">
+                        <img [src]="reserve?.urlImg" alt="Evento" class="event-icon">
+                        <h2>{{reserve?.eventId?.title}}</h2>
+                    </div>
+                    <p><strong>Fecha:</strong> {{reserve?.reservationDate | date}}</p>
+                    <p><strong>Ubicación:</strong> {{reserve?.eventId?.location}}</p>
+                    <p><strong>Numero de Tickets</strong> {{reserve?.numberOfTickets}}</p>
+                    <p><strong>Estado:</strong> {{reserve?.status}}</p>
+                    <button (click)="cancelarReserva(reserve?._id)" class="cancel-btn">Cancelar Reserva</button>
+                </div>
+            }
+        }
         
         <!-- Agrega más elementos de reserva según sea necesario -->
+    </div>
+    <h2>Reservas Canceladas</h2>
+    <div class="reservations-list">
+        @if (reservesCancelled?.length == 0) {
+            <p>No hay reservas canceladas</p>
+        }
+        @else {
+            @for (reserve of reservesCancelled; track $index) {
+                <div class="reservation-item">
+                    <div class="reservation-header">
+                        <img [src]="reserve?.urlImg" alt="Evento" class="event-icon">
+                        <h2>{{reserve?.eventId?.title}}</h2>
+                    </div>
+                    <p><strong>Fecha:</strong> {{reserve?.reservationDate | date}}</p>
+                    <p><strong>Ubicación:</strong> {{reserve?.eventId?.location}}</p>
+                    <p><strong>Numero de Tickets</strong> {{reserve?.numberOfTickets}}</p>
+                    <p><strong>Estado:</strong> {{reserve?.status}}</p>
+                    <button (click)="cancelarReserva(reserve?._id)" class="cancel-btn">Cancelar Reserva</button>
+                </div>
+            }
+        }
+
     </div>
 </div>

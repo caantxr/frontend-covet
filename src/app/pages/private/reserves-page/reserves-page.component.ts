@@ -12,16 +12,31 @@ import { CommonModule } from '@angular/common';
 })
 export class ReservesPageComponent {
   user: any
-  reserves: any
+  reservesAvailable: any
+  reservesCancelled: any
   constructor (private reserveService: ReserveService, private authService: AuthService){
   }
   ngOnInit(){
     this.user = this.authService.userData;
     console.log( this.user );
-    this.reserveService.obtenerReservasUserId(this.user._id).subscribe((data)=>{
+    this.loadData()
+  }
+  cancelarReserva(id:any){
+    console.log(id);
+    this.reserveService.cambiarEstadoReservaId(id,"cancelled").subscribe((data)=>{
       console.log(data);
-      this.reserves=data
+      this.loadData()
     })
   }
-  cancelarReserva(id:any){console.log(id);}
+  loadData(){
+    this.reserveService.obtenerReservasUserId(this.user._id).subscribe((data)=>{
+      console.log(data);
+      this.reservesAvailable=data.filter((reserve:any)=>{
+        return reserve.status != 'cancelled'
+      })
+      this.reservesCancelled=data.filter((reserve:any)=>{
+        return reserve.status == 'cancelled'
+      })
+    })
+  }
 }

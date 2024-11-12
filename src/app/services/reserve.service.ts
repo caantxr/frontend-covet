@@ -16,4 +16,7 @@ export class ReserveService {
   obtenerReservasUserId(id:any){
     return this.http.get <any> (`http://localhost:4000/api/reservations/user/${id}`)
   }
+  cambiarEstadoReservaId(id:any,status:any){
+    return this.http.patch <any> (`http://localhost:4000/api/reservations/user/reserve/${id}`, {status})
+  }
 }
