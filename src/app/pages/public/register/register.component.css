@@ -4,14 +4,16 @@
   margin: 0 auto;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #1c1f26; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
   text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 h2 {
   margin-bottom: 30px;
-  color: #333;
+  color: #28a745; /* Verde brillante */
   font-size: 26px;
   font-weight: bold;
 }
@@ -27,7 +29,7 @@ label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: #333;
+  color: #e0e0e0; /* Texto claro */
 }
 
 /* Estilo de los inputs */
@@ -35,7 +37,9 @@ label {
   width: 100%;
   padding: 12px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid #39424e;
+  background-color: #2a2d36; /* Fondo oscuro de inputs */
+  color: #e0e0e0; /* Texto claro en inputs */
   font-size: 16px;
   transition: border-color 0.3s;
 }
@@ -58,7 +62,7 @@ label {
   width: 100%;
   padding: 14px;
   border: none;
-  background-color: #28a745;
+  background-color: #28a745; /* Verde brillante */
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -85,20 +89,32 @@ label {
   outline: none;
 }
 
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Estilos responsivos */
 @media (max-width: 480px) {
   .register-container {
     padding: 20px;
   }
-  
+
   h2 {
     font-size: 22px;
   }
-  
+
   .form-control {
     font-size: 14px;
   }
-  
+
   .btn-submit {
     font-size: 14px;
   }

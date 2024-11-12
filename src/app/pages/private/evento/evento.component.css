@@ -1,53 +1,75 @@
 .events-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #002147;
+  font-size: 1.8em;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #002147;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+  outline: none;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background-color: #0056b3;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #004494;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-submit:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .events-container {
+      width: 95%;
   }
-  
-  h2 {
-    margin-bottom: 20px;
-    color: #333;
+
+  .form-control, .btn-submit {
+      font-size: 1em;
   }
-  
-  .form-group {
-    margin-bottom: 15px;
-    text-align: left;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .form-control {
-    width: 100%;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  .btn-submit {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-  }
-  
-  .btn-submit:disabled {
-    background-color: #ccc;
-  }
-  
-  .btn-submit:hover {
-    background-color: #0056b3;
-  }
-  
+}

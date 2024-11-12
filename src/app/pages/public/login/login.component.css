@@ -5,13 +5,15 @@
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: #1c1f26; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
   text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 h2 {
   margin-bottom: 20px;
-  color: #333;
+  color: #007bff; /* Azul brillante */
   font-size: 24px;
   font-weight: bold;
 }
@@ -27,7 +29,7 @@ label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: #333;
+  color: #e0e0e0; /* Texto claro */
 }
 
 /* Estilo de los inputs */
@@ -37,6 +39,8 @@ label {
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 16px;
+  background-color: #2a2d36; /* Fondo oscuro para inputs */
+  color: #e0e0e0; /* Texto claro en inputs */
   transition: border-color 0.3s;
 }
 
@@ -53,12 +57,18 @@ label {
   display: block;
 }
 
+/* Animación de enfoque en los campos de texto */
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
 /* Estilo del botón de submit */
 .btn-submit {
   width: 100%;
   padding: 14px;
   border: none;
-  background-color: #007bff;
+  background-color: #007bff; /* Azul brillante */
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -79,10 +89,16 @@ label {
   transform: translateY(-2px);
 }
 
-/* Animación de enfoque en los campos de texto */
-.form-control:focus {
-  border-color: #007bff;
-  outline: none;
+/* Animación de entrada para el formulario */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Estilos responsivos */
@@ -90,15 +106,15 @@ label {
   .login-container {
     padding: 20px;
   }
-  
+
   h2 {
     font-size: 20px;
   }
-  
+
   .form-control {
     font-size: 14px;
   }
-  
+
   .btn-submit {
     font-size: 14px;
   }
